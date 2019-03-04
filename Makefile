@@ -18,6 +18,7 @@ NAME	=	my_nmlibasm.so
 SRC		=	$(SOURCES)/strlen.asm\
 			$(SOURCES)/strchr.asm\
 			$(SOURCES)/memset.asm\
+			$(SOURCES)/memcpy.asm\
 
 OBJS	=	$(SRC:.asm=.o)
 
