@@ -4,14 +4,17 @@ section .text
 GLOBAL strlen
 
 strlen:
-	xor rax, rax
+	push rbp
+	mov rbp, rsp
 
 count:
 	cmp BYTE [rdi], 0
-	je end
+	je leave
 	inc rdi
-	mov rcx, rax
+	mov rax, rcx
 	jmp count
 
-end:
+leave:
+	mov rsp, rbp
+	pop rbp
 	ret

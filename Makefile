@@ -7,8 +7,6 @@
 
 SOURCES	=	./sources
 
-INC_DIR =	./Includes
-
 LINK	=	ld
 
 CC		=	nasm
@@ -17,7 +15,8 @@ CFLAGS	=	-fPIC -shared
 
 NAME	=	my_nmlibasm.so
 
-SRC		=	$(SOURCES)/strlen.asm
+SRC		=	$(SOURCES)/strlen.asm\
+			$(SOURCES)/strchr.asm
 
 OBJS	=	$(SRC:.asm=.o)
 
