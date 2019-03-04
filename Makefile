@@ -16,7 +16,8 @@ CFLAGS	=	-fPIC -shared
 NAME	=	my_nmlibasm.so
 
 SRC		=	$(SOURCES)/strlen.asm\
-			$(SOURCES)/strchr.asm
+			$(SOURCES)/strchr.asm\
+			$(SOURCES)/memset.asm\
 
 OBJS	=	$(SRC:.asm=.o)
 
