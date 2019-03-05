@@ -8,9 +8,9 @@ strchr:
 	mov rbp, rsp
 
 loop:
-	cmp BYTE [rdi], 0
+	cmp byte [rdi], 0
 	je notFound
-	cmp BYTE [rdi], sil
+	cmp byte [rdi], sil
 	je found
 	inc rdi
 	jmp loop

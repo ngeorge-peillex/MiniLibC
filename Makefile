@@ -13,12 +13,13 @@ CC		=	nasm
 
 CFLAGS	=	-fPIC -shared
 
-NAME	=	my_nmlibasm.so
+NAME	=	libasm.so
 
 SRC		=	$(SOURCES)/strlen.asm\
 			$(SOURCES)/strchr.asm\
 			$(SOURCES)/memset.asm\
 			$(SOURCES)/memcpy.asm\
+			$(SOURCES)/strcmp.asm\
 
 OBJS	=	$(SRC:.asm=.o)
 
