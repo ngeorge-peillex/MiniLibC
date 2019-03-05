@@ -9,8 +9,8 @@ strcmp:
 	xor rax, rax
 
 loop:
-	mov r8b, byte [rdi]
-	mov r9b, byte [rsi]
+	mov r8b, [rdi]
+	mov r9b, [rsi]
 	cmp r8b, 0
 	je notEqual
 	cmp r8b, r9b
@@ -21,8 +21,8 @@ loop:
 
 notEqual:
 	movzx rax, r8b
-	movzx r10, r9b
-	sub rax, r10
+	movzx r9, r9b
+	sub rax, r9
 
 end:
 	mov rsp, rbp

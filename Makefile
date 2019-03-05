@@ -20,7 +20,8 @@ SRC		=	$(SOURCES)/strlen.asm\
 			$(SOURCES)/memset.asm\
 			$(SOURCES)/memcpy.asm\
 			$(SOURCES)/strcmp.asm\
-			$(SOURCES)/strncmp.asm
+			$(SOURCES)/strncmp.asm\
+			$(SOURCES)/strcasecmp.asm\
 
 OBJS	=	$(SRC:.asm=.o)
 
