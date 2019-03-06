@@ -29,11 +29,11 @@ compare:
 checkFirst:
 	cmp r8b, 65
 	jge toLowerFirst
-	jmp checkSecond
+	jmp compare
 
 toLowerFirst:
 	xor r8b, 32
-	jmp checkSecond
+	jmp loop
 
 checkSecond:
 	cmp r9b, 65
