@@ -9,7 +9,7 @@ rindex:
 	xor rcx, rcx
 
 goToEnd:
-	cmp rdi, 0
+	cmp byte [rdi], 0
 	je findChar
 	inc rdi
 	inc rcx
