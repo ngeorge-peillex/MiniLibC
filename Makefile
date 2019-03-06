@@ -21,6 +21,7 @@ SRC		=	$(SOURCES)/strlen.asm\
 			$(SOURCES)/memcpy.asm\
 			$(SOURCES)/strcmp.asm\
 			$(SOURCES)/rindex.asm\
+			$(SOURCES)/strstr.asm\
 			$(SOURCES)/strncmp.asm\
 			$(SOURCES)/strcasecmp.asm\
 
