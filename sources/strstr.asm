@@ -11,12 +11,7 @@ strstr:
 
 check:
 	cmp byte [rsi], 0
-	je error
-	jmp lencount
-
-error:
-	mov rax, rsi
-	jmp leave
+	je found
 
 lencount:
 	cmp byte [rsi + rcx], 0
