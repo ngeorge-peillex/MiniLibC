@@ -9,23 +9,23 @@ rindex:
 	xor rcx, rcx
 
 goToEnd:
-	cmp byte [rdi], 0
+	cmp byte [rdi + rcx], 0
 	je findChar
-	inc rdi
 	inc rcx
 	jmp goToEnd
 
 findChar:
 	cmp rcx, 0
 	je notFound
-	cmp byte [rdi], sil
+	cmp byte [rdi + rcx], sil
 	je found
-	dec rdi
 	dec rcx
 	jmp findChar
 
 found:
+	add rdi, rcx
 	mov rax, rdi
+	jmp end
 
 notFound:
 	mov rax, 0
