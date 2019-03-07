@@ -24,8 +24,8 @@ SRC		=	$(SOURCES)/strlen.asm\
 			$(SOURCES)/strstr.asm\
 			$(SOURCES)/strncmp.asm\
 			$(SOURCES)/strcspn.asm\
+			$(SOURCES)/strpbrk.asm\
 			$(SOURCES)/strcasecmp.asm\
-			#$(SOURCES)/strpbrk.asm\
 
 OBJS	=	$(SRC:.asm=.o)
 
