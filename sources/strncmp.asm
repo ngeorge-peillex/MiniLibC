@@ -11,14 +11,12 @@ strncmp:
 loop:
 	cmp rdx, rcx
 	je notEqual
-	mov r8b, byte [rdi]
-	mov r9b, byte [rsi]
+	mov r8b, byte [rdi + rcx]
+	mov r9b, byte [rsi + rcx]
 	cmp r8b, 0
 	je notEqual
 	cmp r8b, r9b
 	jne notEqual
-	inc rdi
-	inc rsi
 	inc rcx
 	jmp loop
 

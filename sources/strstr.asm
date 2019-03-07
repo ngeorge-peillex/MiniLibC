@@ -3,20 +3,29 @@
 section .text
 GLOBAL strstr
 EXTERN strncmp
-EXTERN strlen
 
 strstr:
 	push rbp
 	mov rbp, rsp
+	xor rcx, rcx
+
+check:
+	cmp byte [rsi], 0
+	je error
+	jmp lencount
+
+error:
+	mov rax, rsi
+	jmp leave
+
+lencount:
+	cmp byte [rsi + rcx], 0
+	je init
+	inc rcx
+	jmp lencount
 
 init:
-	push rdi
-	push rsi
-	mov rdi, rsi
-	CALL strlen wrt ..plt
-	mov rdx, rax
-	pop rsi
-	pop rdi
+	mov rdx, rcx
 
 loop:
 	cmp byte [rdi], 0
@@ -25,11 +34,10 @@ loop:
 	cmp rax, 0
 	je found
 	inc rdi
-	jmp init
+	jmp loop
 
 found:
 	mov rax, rdi
-	dec rax
 	jmp leave
 
 notFound:
