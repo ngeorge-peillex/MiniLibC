@@ -21,8 +21,8 @@ loop:
 	jmp loop
 
 notEqual:
-	movzx rax, r8b
-	movzx r10, r9b
+	movsx rax, r8b
+	movsx r10, r9b
 	sub rax, r10
 
 end:
