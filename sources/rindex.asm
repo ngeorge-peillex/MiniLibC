@@ -15,10 +15,10 @@ goToEnd:
 	jmp goToEnd
 
 findChar:
-	cmp rcx, 0
-	je notFound
 	cmp byte [rdi + rcx], sil
 	je found
+	cmp rcx, 0
+	je notFound
 	dec rcx
 	jmp findChar
 
