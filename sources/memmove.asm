@@ -2,28 +2,41 @@
 
 section .text
 GLOBAL memmove
+EXTERN memcpy
 
 memmove:
 	push rbp
 	mov rbp, rsp
 	xor rcx, rcx
 
-loop:
-	cmp rcx, rdx
-	je backToBegin
-	mov ah, [rsi]
- 	mov [rdi], ah
-	inc rdi
-	inc rsi
-	inc rcx
-	jmp loop
+checkOverlap:
+	cmp rsi, rdi
+	jg noOverlap
+	jl isOverlap
+	jmp end
 
-backToBegin:
+noOverlap:
+	call memcpy wrt ..plt
+	mov rsp, rbp
+	pop rbp
+	ret
+
+isOverlap:
+	jmp goToEnd
+
+goToEnd:
+	cmp rcx, rdx
+	je loop
+	inc rcx
+	jmp goToEnd
+
+loop:
+	mov ah, [rsi + rcx]
+ 	mov [rdi + rcx], ah
 	cmp rcx, 0
 	je end
-	dec rdi
 	dec rcx
-	jmp backToBegin
+	jmp loop
 
 end:
 	mov rsp, rbp
