@@ -6,26 +6,23 @@ GLOBAL strncmp
 strncmp:
 	push rbp
 	mov rbp, rsp
-	xor rax, rax
 	xor rcx, rcx
 
 loop:
-	cmp rcx, rdx
+	cmp rdx, rcx
 	je notEqual
-	mov r8b, [rdi]
-	mov r9b, [rsi]
+	mov r8b, byte [rdi + rcx]
+	mov r9b, byte [rsi + rcx]
 	cmp r8b, 0
 	je notEqual
 	cmp r8b, r9b
 	jne notEqual
-	inc rdi
-	inc rsi
 	inc rcx
 	jmp loop
 
 notEqual:
-	movzx rax, r8b
-	movzx r9, r9b
+	movsx rax, r8b
+	movsx r9, r9b
 	sub rax, r9
 
 end:
