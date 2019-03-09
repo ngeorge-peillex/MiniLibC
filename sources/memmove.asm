@@ -10,36 +10,28 @@ memmove:
 	xor rcx, rcx
 
 checkOverlap:
-	cmp rsi, rdi
-	jg noOverlap
-	jl isOverlap
-	jmp end
+	cmp rdi, rsi
+	jge isOverlap
+	jl noOverlap
 
 noOverlap:
 	call memcpy wrt ..plt
-	mov rsp, rbp
-	pop rbp
-	ret
+	jmp end
 
 isOverlap:
-	jmp goToEnd
-
-goToEnd:
-	cmp rcx, rdx
-	je loop
-	inc rcx
-	jmp goToEnd
+	dec rdx
+	jmp loop
 
 loop:
-	mov ah, [rsi + rcx]
- 	mov [rdi + rcx], ah
-	cmp rcx, 0
-	je end
-	dec rcx
+	mov ah, [rsi + rdx]
+ 	mov [rdi + rdx], ah
+	dec rdx
+	cmp rdx, 0
+	jl end
 	jmp loop
 
 end:
 	mov rsp, rbp
-	pop rbp
 	mov rax, rdi
+	pop rbp
 	ret
